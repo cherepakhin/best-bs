@@ -4,8 +4,6 @@
 
 Сделать приложение на React для магазина.
 
-![screen](doc/screen.png)
-
 #### Тесты
 
 ```shell script
