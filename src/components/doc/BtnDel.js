@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class BtnDel extends React.Component{
   constructor(props) {
@@ -25,9 +26,11 @@ class BtnDel extends React.Component{
 }
 
 BtnDel.propTypes = {
-  action: React.PropTypes.func.isRequired, // функция удаления
-  obj: React.PropTypes.object.isRequired // объект для удаления
+  action: PropTypes.func.isRequired, // функция удаления
+  obj: PropTypes.object.isRequired // объект для удаления
 };
 
 export default BtnDel;
+
+
 

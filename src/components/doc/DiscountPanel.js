@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import BtnDel from './BtnDel';
 
 /**
@@ -63,10 +64,10 @@ class DiscountPanel extends  React.Component{
 }
 
 DiscountPanel.propTypes = {
-  actions: React.PropTypes.shape({
-    del: React.PropTypes.func.isRequired
+  actions: PropTypes.shape({
+    del: PropTypes.func.isRequired
   }),
-  discounts: React.PropTypes.array.isRequired
+  discounts: PropTypes.array.isRequired
 };
 
 export default DiscountPanel;

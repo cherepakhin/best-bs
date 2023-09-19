@@ -1,5 +1,6 @@
 import React from 'react';
 import DocItem from './DocItem.js';
+import PropTypes from 'prop-types';
 
 /**
  * Содержимое документа
@@ -61,11 +62,11 @@ class DocBody extends React.Component {
 }
 
 DocBody.propTypes = {
-  actions: React.PropTypes.shape({
-    deleteDocItem: React.PropTypes.func.isRequired
+  actions: PropTypes.shape({
+    deleteDocItem: PropTypes.func.isRequired
   }),
-  doc: React.PropTypes.shape({
-    docItems: React.PropTypes.array.isRequired
+  doc: PropTypes.shape({
+    docItems: PropTypes.array.isRequired
   })
 };
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { mount } from 'enzyme';
 import DiscountPanel from '../DiscountPanel.js';
 import BtnDel from '../BtnDel.js';
