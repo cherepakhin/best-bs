@@ -1,0 +1,71 @@
+/* istanbul ignore next */'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _extends = Object.assign || function (target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i];for (var key in source) {if (Object.prototype.hasOwnProperty.call(source, key)) {target[key] = source[key];}}}return target;};exports.
+
+
+
+
+
+
+
+
+selectGroupT = selectGroupT; /* istanbul ignore next */exports.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+getGoodsByGroupT = getGoodsByGroupT;var /* istanbul ignore next */_constants = require('../constants');var /* istanbul ignore next */_isomorphicFetch = require('isomorphic-fetch'); /* istanbul ignore next */var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} /**
+                                                                                                                                                                                                                                                                                                                                                                               * Получение хар-к группы и товаров (если нет осн.хар-к)
+                                                                                                                                                                                                                                                                                                                                                                               * @param groupT
+                                                                                                                                                                                                                                                                                                                                                                               * @param onRest
+                                                                                                                                                                                                                                                                                                                                                                               * @returns {function(*)}
+                                                                                                                                                                                                                                                                                                                                                                               */function selectGroupT(groupT) {/* istanbul ignore next */var onRest = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;return function (dispatch) {return (/* istanbul ignore next */(0, _isomorphicFetch2.default)( /* istanbul ignore next */_constants.INITVAR.URL_SERVER + '/groupt.ctrl/features_for_group', { method: 'POST', headers: { 'Accept': 'application/json, text/plain, */*', 'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8' }, body: 'groupt=' + encodeURIComponent(groupT.name) }).then(function (response) {return response.json();}).then(function (featuresForGroupT) {groupT = /* istanbul ignore next */_extends({}, groupT, { featuresForGroupT: featuresForGroupT });dispatch({ type: /* istanbul ignore next */_constants.CONST_ACTION.SELECT_GROUPT, payload: { selectedGroupT: groupT } });dispatch(getGoodsByGroupT(groupT, onRest));}).catch(function (ex) {console.log('Failed get groups /groupt.ctrl/features_for_group', ex);}));};}function getGoodsByGroupT(groupT) {/* istanbul ignore next */var onRest = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;return function (dispatch) {if (groupT.featuresForGroupT !== undefined && groupT.featuresForGroupT.length == 0) {dispatch({ type: /* istanbul ignore next */_constants.CONST_ACTION.PROGRESS_SHOW });
+            var body = 'groupt=' + encodeURIComponent(groupT.name) +
+            '&filter=' + encodeURIComponent('') +
+            '&onrest=' + encodeURIComponent(onRest);
+            return (/* istanbul ignore next */(0, _isomorphicFetch2.default)( /* istanbul ignore next */_constants.INITVAR.URL_SERVER + '/price.ctrl/getByFilter', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json, text/plain, */*',
+                        'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+
+                    body: body }).
+
+                then(function (response) {
+                    return response.json();
+                }).then(function (goods) {
+                    dispatch({
+                        type: /* istanbul ignore next */_constants.CONST_ACTION.GET_GOODS,
+                        payload: {
+                            goods: goods } });
+
+
+                    dispatch({
+                        type: /* istanbul ignore next */_constants.CONST_ACTION.PROGRESS_HIDE });
+
+                }).catch(function (ex) {
+                    console.log('Failed get goods /price.ctrl/list', ex);
+                }));
+        }
+    };
+}

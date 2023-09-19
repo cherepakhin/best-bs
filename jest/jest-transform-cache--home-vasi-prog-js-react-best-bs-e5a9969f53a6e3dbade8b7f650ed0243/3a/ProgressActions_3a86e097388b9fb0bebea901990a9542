@@ -1,0 +1,15 @@
+/* istanbul ignore next */'use strict';Object.defineProperty(exports, "__esModule", { value: true });exports.
+
+progressShow = progressShow; /* istanbul ignore next */exports.
+
+
+
+
+
+
+progressHide = progressHide;var /* istanbul ignore next */_constants = require('../constants');function progressShow() {return { type: /* istanbul ignore next */_constants.CONST_ACTION.PROGRESS_SHOW, payload: '' };}function progressHide() {
+    return {
+        type: /* istanbul ignore next */_constants.CONST_ACTION.PROGRESS_HIDE,
+        payload: '' };
+
+}

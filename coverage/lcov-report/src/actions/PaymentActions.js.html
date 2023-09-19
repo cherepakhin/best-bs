@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/actions/PaymentActions.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">src/actions</a> PaymentActions.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">64.86% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>24/37</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">50% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>2/4</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">81.25% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>13/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">64.86% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>24/37</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import fetch from 'isomorphic-fetch';
+import { CONST_ACTION, INITVAR, dateFormatter } from '../constants';
+import mapDlg from '../components/dlg/mapDlg.js';
+&nbsp;
+export let del = function (payment) {
+  return (dispatch) =&gt; {
+    let body = 'n=' + encodeURIComponent(payment.n);
+    return fetch(INITVAR.URL_SERVER + '/payment.ctrl/delete', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      },
+      body: body
+    }).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      dispatch({
+        type: CONST_ACTION.SET_DOC,
+        payload: json
+      });
+    }).catch(<span class="fstat-no" title="function not covered" >fu</span>nction (ex) {
+      let err = <span class="cstat-no" title="statement not covered" >'Failed create doc /payment.ctrl/delete.' + ex.message;</span>
+<span class="cstat-no" title="statement not covered" >      console.log(err);</span>
+<span class="cstat-no" title="statement not covered" >      mapDlg.get(CONST_ACTION.DLG_MESSAGE)</span>
+      .show(dispatch, err);
+    });
+  };
+};
+&nbsp;
+export let create = function (doc, payment) {
+  return (dispatch) =&gt; {
+    let body = 'docN=' + encodeURIComponent(doc.n) +
+    '&amp;typePayment=' + encodeURIComponent(payment.typePayment) +
+    '&amp;summa=' + encodeURIComponent(payment.summa);
+    return fetch(INITVAR.URL_SERVER + '/payment.ctrl/create', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      },
+      body: body
+&nbsp;
+    }).then(function (response) {
+      return response.json();
+    }).then(function (json) {
+      // console.log(json);
+      dispatch({
+        type: CONST_ACTION.SET_DOC,
+        payload: json
+      });
+    }).catch(<span class="fstat-no" title="function not covered" >fu</span>nction (ex) {
+      let err = <span class="cstat-no" title="statement not covered" >'Failed create doc /payment.ctrl/delete.' + ex.message;</span>
+<span class="cstat-no" title="statement not covered" >      console.log(err);</span>
+<span class="cstat-no" title="statement not covered" >      mapDlg.get(CONST_ACTION.DLG_MESSAGE)</span>
+      .show(dispatch, err);
+<span class="cstat-no" title="statement not covered" >      return;</span>
+    });
+  };
+};
+&nbsp;
+export let selectDate = function (ddate) {
+  return (dispatch) =&gt; {
+    dispatch({
+      type: CONST_ACTION.PROGRESS_SHOW
+    });
+    let body = 'ddate=' + encodeURIComponent(dateFormatter.format(ddate));
+    return fetch(INITVAR.URL_SERVER + '/payment.ctrl/getByDate', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
+      },
+      body: body
+&nbsp;
+    }).then(function (response) {
+      return response.json();
+    }).then(function (items) {
+      <span class="missing-if-branch" title="if path not taken" >I</span>if (items.message !== undefined &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >items.message !== '')</span> {
+<span class="cstat-no" title="statement not covered" >        mapDlg.get(CONST_ACTION.DLG_MESSAGE).show(dispatch, items.message);</span>
+<span class="cstat-no" title="statement not covered" >        return;</span>
+      }
+&nbsp;
+      let payments = items.map(function (payment) {
+        payment.ddate = new Date(payment.ddate);
+        return payment;
+      });
+&nbsp;
+      dispatch({
+        type: CONST_ACTION.SELECT_DATE_PAYMENT,
+        payload: {
+          payments: payments,
+          ddate: ddate
+        }
+      });
+      dispatch({
+        type: CONST_ACTION.PROGRESS_HIDE
+      });
+    }).catch(<span class="fstat-no" title="function not covered" >fu</span>nction (ex) {
+      let err = <span class="cstat-no" title="statement not covered" >'Failed create doc /payment.ctrl/getByDate.' + ex.message;</span>
+<span class="cstat-no" title="statement not covered" >      console.log(err);</span>
+<span class="cstat-no" title="statement not covered" >      mapDlg.get(CONST_ACTION.DLG_MESSAGE).show(dispatch, err);</span>
+<span class="cstat-no" title="statement not covered" >      return;</span>
+    });
+  };
+};
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 23 2017 22:56:20 GMT+0500 (+05)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

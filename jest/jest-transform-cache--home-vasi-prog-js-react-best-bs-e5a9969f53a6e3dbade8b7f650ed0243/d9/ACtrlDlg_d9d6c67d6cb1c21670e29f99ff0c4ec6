@@ -1,0 +1,17 @@
+/* istanbul ignore next */'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var /* istanbul ignore next */_constants = require('../../constants'); /* istanbul ignore next */function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}
+/**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  * Класс для контроллера диалога
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  */var
+ACtrlDlg = function () {
+
+    function /* istanbul ignore next */ACtrlDlg() {/* istanbul ignore next */_classCallCheck(this, ACtrlDlg);
+    }_createClass(ACtrlDlg, [{ key: 'cancel', value: function cancel()
+
+        {
+            var dispatch = this;
+            dispatch({ type: /* istanbul ignore next */_constants.CONST_ACTION.CLOSE_DIALOG });
+        } }]);return ACtrlDlg;}(); /* istanbul ignore next */exports.default =
+
+
+
+ACtrlDlg;

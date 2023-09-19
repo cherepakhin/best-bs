@@ -1,0 +1,192 @@
+/* istanbul ignore next */'use strict';Object.defineProperty(exports, "__esModule", { value: true });exports.
+
+
+
+
+
+
+
+
+addToDoc = addToDoc; /* istanbul ignore next */exports.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+createDoc = createDoc; /* istanbul ignore next */exports.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+saveDoc = saveDoc; /* istanbul ignore next */exports.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+deleteDocItem = deleteDocItem; /* istanbul ignore next */exports.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+printToPdf = printToPdf;var /* istanbul ignore next */_isomorphicFetch = require('isomorphic-fetch'); /* istanbul ignore next */var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);var /* istanbul ignore next */_constants = require('../constants');var /* istanbul ignore next */_MessageErrorCtrl = require('../components/dlg/MessageErrorCtrl'); /* istanbul ignore next */var _MessageErrorCtrl2 = _interopRequireDefault(_MessageErrorCtrl);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * Добавить товар в корзину
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * @param price
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * @returns {function(*)}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */function addToDoc(doc, price) {var index = -1;for (var i = 0; i < doc.docItems.length; i++) {var _docItem = doc.docItems[i];if (_docItem.tovar.n == price.tovar.n) {_docItem.qty = _docItem.qty + 1;index = i;break;}}if (index < 0) {var docItem = { qty: 1, cena: price.cena, price: price.cena, tovar: price.tovar };doc.docItems.push(docItem);}doc.summa = doc.summa + price.cena;return { type: /* istanbul ignore next */_constants.CONST_ACTION.ADD_TO_DOC, payload: doc };} /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         * Отправка документа на сервер для сохранения
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         * @param doc
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         * @param price
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         * @returns {{type: string, payload: *}}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         */function createDoc(doc) {return function (dispatch) {dispatch({ type: /* istanbul ignore next */_constants.CONST_ACTION.PROGRESS_SHOW });var body = 'doc=' + encodeURIComponent(JSON.stringify(doc));return (/* istanbul ignore next */(0, _isomorphicFetch2.default)( /* istanbul ignore next */_constants.INITVAR.URL_SERVER + '/doc.ctrl/save', { method: 'POST', headers: { 'Accept': 'application/json, text/plain, */*', 'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8' }, body: body }).then(function (response) {return response.json();}).then(function (json) {if (json.message !== undefined && json.message !== '') {/* istanbul ignore next */_MessageErrorCtrl2.default.openDlg(dispatch, json);}dispatch({ type: /* istanbul ignore next */_constants.CONST_ACTION.SET_DOC, payload: json });dispatch({ type: /* istanbul ignore next */_constants.CONST_ACTION.PROGRESS_HIDE });}).catch(function (ex) {console.log('Failed create doc /doc.ctrl/save', ex);}));};}function saveDoc(doc) {return function (dispatch) {dispatch({ type: /* istanbul ignore next */_constants.CONST_ACTION.PROGRESS_SHOW });var body = 'doc=' + encodeURIComponent(JSON.stringify(doc));return (/* istanbul ignore next */(0, _isomorphicFetch2.default)( /* istanbul ignore next */_constants.INITVAR.URL_SERVER + '/doc.ctrl/save', { method: 'POST', headers: { 'Accept': 'application/json, text/plain, *!/!*', 'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8' }, body: body }).then(function (response) {return response.json();}).then(function (json) {if (json.message !== undefined && json.message !== '') {/* istanbul ignore next */_MessageErrorCtrl2.default.openDlg(dispatch, json);}dispatch({ type: /* istanbul ignore next */_constants.CONST_ACTION.SET_DOC, payload: json });dispatch({ type: /* istanbul ignore next */_constants.CONST_ACTION.PROGRESS_HIDE });}).catch(function (ex) {console.log('Failed create doc /doc.ctrl/save', ex);}));};}function deleteDocItem(docItem) {// console.log(docItem);
+    if (docItem.n === undefined) {// Если docItem еще не сохранен в базе
+        return { type: /* istanbul ignore next */_constants.CONST_ACTION.DELETE_DOCITEM, payload: docItem };} else {return function (dispatch) {dispatch({ type: /* istanbul ignore next */_constants.CONST_ACTION.PROGRESS_SHOW });return (/* istanbul ignore next */(0, _isomorphicFetch2.default)( /* istanbul ignore next */_constants.INITVAR.URL_SERVER + '/doc.ctrl/deleteItem', { method: 'POST', headers: { 'Accept': 'application/json, text/plain, *!/!*', 'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8' }, body: docItem.n }).then(function (response) {return response.json();}).then(function (json) {// console.log(json);
+                    dispatch({ type: /* istanbul ignore next */_constants.CONST_ACTION.SET_DOC, payload: json });dispatch({ type: /* istanbul ignore next */_constants.CONST_ACTION.PROGRESS_HIDE });}).catch(function (ex) {console.log('Failed create doc /doc.ctrl/deleteItem', ex);}));};}}function printToPdf(doc, nameReport) {return function (dispatch) {var body = 'doc=' + encodeURIComponent(JSON.stringify(doc));return (/* istanbul ignore next */(0, _isomorphicFetch2.default)( /* istanbul ignore next */_constants.INITVAR.URL_SERVER + '/doc.ctrl/save', { method: 'POST', headers: { 'Accept': 'application/json, text/plain, *!/!*', 'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8' }, body: body }).then(function (response) {return response.json();}).then(function (json) {
+                if (json.message !== undefined && json.message !== '') {
+                    /* istanbul ignore next */_MessageErrorCtrl2.default.openDlg(dispatch, json);
+                }
+                dispatch({
+                    type: /* istanbul ignore next */_constants.CONST_ACTION.SET_DOC,
+                    payload: json });
+
+                return json;
+            }).then(function (json) {
+                var body = 'doc=' + encodeURIComponent(JSON.stringify(json)) +
+                '&nameReport=' + encodeURIComponent(nameReport);
+                /* istanbul ignore next */(0, _isomorphicFetch2.default)( /* istanbul ignore next */_constants.INITVAR.URL_SERVER + '/doc.ctrl/report', {
+                    method: 'POST',
+                    headers: {
+                        'Accept': '*!/!*',
+                        'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+
+                    body: body }).
+                then(function (response) {
+                    dispatch({
+                        type: /* istanbul ignore next */_constants.CONST_ACTION.PROGRESS_HIDE });
+
+                    return response.blob();
+                }).then(function (blob) {
+                    var file = new Blob([blob], { type: 'application/pdf' });
+                    var fileURL = URL.createObjectURL(file);
+                    window.open(fileURL);
+                }).catch(function (ex) {
+                    console.log('parsing failed', ex);
+                });
+            }));
+    };
+}

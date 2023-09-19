@@ -1,0 +1,109 @@
+/* istanbul ignore next */'use strict';var /* istanbul ignore next */_DocActions = require('../../DocActions'); /* istanbul ignore next */var actions = _interopRequireWildcard(_DocActions);
+var /* istanbul ignore next */_constants = require('../../../constants'); /* istanbul ignore next */function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;} else {var newObj = {};if (obj != null) {for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];}}newObj.default = obj;return newObj;}}
+
+describe('DocActions', function () {
+    it('Добавить товар в пустой документ addDoc()', function () {
+        var expectedAction = {
+            type: /* istanbul ignore next */_constants.CONST_ACTION.ADD_TO_DOC,
+            payload: {
+                summa: 2,
+                docItems: [{
+                    qty: 1,
+                    cena: 2,
+                    price: 2,
+                    tovar: {
+                        n: 1 } }] } };
+
+
+
+
+        var doc = {
+            summa: 0,
+            docItems: [] };
+
+        var price = {
+            cena: 2,
+            tovar: {
+                n: 1 } };
+
+
+        expect(actions.addToDoc(doc, price)).toEqual(expectedAction);
+    });
+
+    it('Добавить НОВЫЙ товар в документ addDoc()', function () {
+        var expectedAction = {
+            type: /* istanbul ignore next */_constants.CONST_ACTION.ADD_TO_DOC,
+            payload: {
+                summa: 5,
+                docItems: [{
+                    qty: 1,
+                    cena: 2,
+                    price: 2,
+                    tovar: {
+                        n: 1 } },
+
+                {
+                    qty: 1,
+                    cena: 3,
+                    price: 3,
+                    tovar: {
+                        n: 3 } }] } };
+
+
+
+
+        var doc = {
+            summa: 2,
+            docItems: [{
+                qty: 1,
+                cena: 2,
+                price: 2,
+                tovar: {
+                    n: 1 } }] };
+
+
+
+        var price = {
+            cena: 3,
+            tovar: {
+                n: 3 } };
+
+
+        expect(actions.addToDoc(doc, price)).toEqual(expectedAction);
+    });
+
+    it('Добавить товар, ктр. уже есть в док-те(увеличивает кол-во) addDoc()', function () {
+        var expectedAction = {
+            type: /* istanbul ignore next */_constants.CONST_ACTION.ADD_TO_DOC,
+            payload: {
+                summa: 4,
+                docItems: [{
+                    qty: 2,
+                    cena: 2,
+                    price: 2,
+                    tovar: {
+                        n: 1 } }] } };
+
+
+
+
+        var doc = {
+            summa: 2,
+            docItems: [{
+                qty: 1,
+                cena: 2,
+                price: 2,
+                tovar: {
+                    n: 1 } }] };
+
+
+
+        var price = {
+            cena: 2,
+            tovar: {
+                n: 1 } };
+
+
+        expect(actions.addToDoc(doc, price)).toEqual(expectedAction);
+    });
+});

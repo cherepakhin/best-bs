@@ -1,0 +1,14 @@
+Задачи
+  ☐ Вывести панель для показа ошибок @high 
+  ☐ Тесты Connected components @created(17-03-06 16:22)
+  ☐ Тест ./components/doc/mapDiscountDlg.js @created(17-03-23 23:14) 
+  --- ✄ -----------------------
+  ☐ WebInspector
+ --- ✄ -----------------------
+
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+Archive:
+ ✔ Тесты для Menu, MenuItem @done (17-03-23 23:09)
+ ✔ Тесты для диалогов @done (17-03-23 23:08)
+ ✔ Тесты для редусеров @created(17-03-06 16:14) @done (17-03-13 17:10)
+ ✔ Тест для actions/dlg/DiscounPercent/actions.ok @done (17-03-13 17:08)

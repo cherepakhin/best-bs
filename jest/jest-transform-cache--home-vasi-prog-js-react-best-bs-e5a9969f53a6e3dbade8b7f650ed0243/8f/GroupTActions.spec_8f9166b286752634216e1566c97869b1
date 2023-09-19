@@ -1,0 +1,86 @@
+/* istanbul ignore next */'use strict';var /* istanbul ignore next */_constants = require('../../constants');
+var /* istanbul ignore next */_GroupTActions = require('../GroupTActions'); /* istanbul ignore next */var actions = _interopRequireWildcard(_GroupTActions);
+
+var /* istanbul ignore next */_reduxThunk = require('redux-thunk'); /* istanbul ignore next */var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
+var /* istanbul ignore next */_reduxMockStore = require('redux-mock-store'); /* istanbul ignore next */var _reduxMockStore2 = _interopRequireDefault(_reduxMockStore);
+var /* istanbul ignore next */_nock = require('nock'); /* istanbul ignore next */var _nock2 = _interopRequireDefault(_nock);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;} else {var newObj = {};if (obj != null) {for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];}}newObj.default = obj;return newObj;}}
+
+var middlewares = [/* istanbul ignore next */_reduxThunk2.default];
+var mockStore = /* istanbul ignore next */(0, _reduxMockStore2.default)(middlewares);
+
+describe('GroupTActions', function () {
+    afterEach(function () {
+        /* istanbul ignore next */_nock2.default.cleanAll();
+    });
+
+    it('selectGroupT', function () {
+        /* istanbul ignore next */(0, _nock2.default)( /* istanbul ignore next */_constants.INITVAR.URL_SERVER).
+        post('/groupt.ctrl/features_for_group').
+        reply(200, [
+        {
+            n: 111,
+            name: 'Хар-ка111' },
+
+        {
+            n: 222,
+            name: 'Хар-ка222' }]);
+
+
+
+        var expectedSelectedGroupT = {
+            n: 1,
+            name: 'Группа1',
+            featuresForGroupT: [
+            {
+                n: 111,
+                name: 'Хар-ка111' },
+
+            {
+                n: 222,
+                name: 'Хар-ка222' }] };
+
+
+
+        var expectedActions = [
+        {
+            type: /* istanbul ignore next */_constants.CONST_ACTION.SELECT_GROUPT,
+            payload: {
+                selectedGroupT: expectedSelectedGroupT } }];
+
+
+
+
+        var store = mockStore({});
+
+        var groupT = {
+            n: 1,
+            name: 'Группа1' };
+
+        //        let paramOnRest = true;
+        //        let paramSelectedGroupT = {};
+        /*        let getGoodsByGroupT = actions.getGoodsByGroupT;
+        
+                actions.getGoodsByGroupT = (_groupT, _onRest) => {
+                    console.log('_groupT');
+                    console.log(_groupT);
+                    paramSelectedGroupT = _groupT;
+                    paramOnRest = _onRest;
+                };*/
+        actions.getGoodsByGroupT = function (_groupT, _onRest) {
+            console.log('_groupT');
+            console.log(_groupT);
+            console.log(_onRest);
+            //            paramSelectedGroupT = _groupT;
+            //            paramOnRest = _onRest;
+        };
+        return store.dispatch(actions.selectGroupT(groupT, true)).
+        then(function () {
+            expect(store.getActions()).toEqual(expectedActions);
+            //                expect(paramOnRest).toEqual(true);
+            //                console.log('paramSelectedGroupT');
+            //                console.log(paramSelectedGroupT);
+            //                expect(paramSelectedGroupT).toEqual(expectedSelectedGroupT);
+            //                actions.getGoodsByGroupT = getGoodsByGroupT;
+        });
+    });
+});

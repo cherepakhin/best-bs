@@ -1,0 +1,33 @@
+/* istanbul ignore next */'use strict';Object.defineProperty(exports, "__esModule", { value: true });exports.
+
+
+
+initVar = initVar;var /* istanbul ignore next */_constants = require('../constants');var /* istanbul ignore next */_isomorphicFetch = require('isomorphic-fetch'); /* istanbul ignore next */var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function initVar() {
+    return function (dispatch) {
+        dispatch({
+            type: /* istanbul ignore next */_constants.CONST_ACTION.PROGRESS_SHOW });
+
+        return (/* istanbul ignore next */(0, _isomorphicFetch2.default)( /* istanbul ignore next */_constants.INITVAR.URL_SERVER + '/var.ctrl/initvar', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json, text/plain, */*',
+                    'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+
+                body: '' }).
+
+            then(function (response) {
+                return response.json();
+            }).then(function (json) {
+                dispatch({
+                    type: /* istanbul ignore next */_constants.CONST_ACTION.INIT_VAR,
+                    payload: json });
+
+                dispatch({
+                    type: /* istanbul ignore next */_constants.CONST_ACTION.PROGRESS_HIDE });
+
+            }).catch(function (ex) {
+                console.log('Failed get groups /var.ctrl/initvar', ex);
+            }));
+
+    };
+}

@@ -1,0 +1,38 @@
+/* istanbul ignore next */'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var /* istanbul ignore next */_MessageErrorDlg = require('./MessageErrorDlg'); /* istanbul ignore next */var _MessageErrorDlg2 = _interopRequireDefault(_MessageErrorDlg);
+var /* istanbul ignore next */_constants = require('../../constants');
+var /* istanbul ignore next */_ACtrlDlg2 = require('./ACtrlDlg'); /* istanbul ignore next */var _ACtrlDlg3 = _interopRequireDefault(_ACtrlDlg2);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self, call) {if (!self) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call && (typeof call === "object" || typeof call === "function") ? call : self;}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;}
+
+/**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * Контроллер для управления диалогом вывода ошибки
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */var
+MessageErrorCtrl = function (_ACtrlDlg) {_inherits(MessageErrorCtrl, _ACtrlDlg);
+    function /* istanbul ignore next */MessageErrorCtrl() {/* istanbul ignore next */_classCallCheck(this, MessageErrorCtrl);var _this = _possibleConstructorReturn(this, (MessageErrorCtrl.__proto__ || Object.getPrototypeOf(MessageErrorCtrl)).call(this));
+
+        /* istanbul ignore next */_this.widget = /* istanbul ignore next */_MessageErrorDlg2.default;
+        /* istanbul ignore next */_this.modalType = /* istanbul ignore next */_constants.CONST_ACTION.DLG_MESSAGE_ERROR;
+        /* istanbul ignore next */_this.title = 'Ошибка';
+        /* istanbul ignore next */_this.description = ''; /* istanbul ignore next */return _this;
+    }_createClass(MessageErrorCtrl, [{ key: 'openDlg', value: function openDlg(
+        dispatch, modalProps) {
+            // Создаю замыкания для функции setTimeout. Там другой this
+            // Связывание нужно для работы с dispatch в фунциях ok() и cancel()
+            var _ok = this.ok.bind(dispatch);
+            var _cancel = this.cancel.bind(dispatch);
+
+            dispatch({
+                type: /* istanbul ignore next */_constants.CONST_ACTION.OPEN_DIALOG,
+                modalType: this.modalType,
+                modalProps: Object.assign(modalProps || {}, {
+                    title: this.title,
+                    ok: _ok,
+                    cancel: _cancel }) });
+
+
+        } }, { key: 'ok', value: function ok()
+        {
+            var dispatch = this;
+            dispatch({ type: /* istanbul ignore next */_constants.CONST_ACTION.CLOSE_DIALOG });
+        } }]);return MessageErrorCtrl;}(_ACtrlDlg3.default); /* istanbul ignore next */exports.default =
+
+
+new MessageErrorCtrl();

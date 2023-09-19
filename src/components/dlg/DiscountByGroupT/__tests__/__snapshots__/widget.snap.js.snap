@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DlgDiscountByGroupT snapshot Проверка title 1`] = `
+<div
+  className="static-modal"
+>
+  <div
+    className="modal"
+    role="dialog"
+    style={
+      Object {
+        "display": "block",
+      }
+    }
+    tabIndex="-1"
+  >
+    <div
+      className="modal-dialog"
+    >
+      <div
+        className="modal-content"
+        role="document"
+      >
+        <div
+          className="modal-header"
+        >
+          <h4
+            className="modal-title"
+          >
+            Скидка по группе товаров
+          </h4>
+        </div>
+        <div
+          className="modal-body"
+        >
+          Сделать скидку?
+        </div>
+        <div
+          className="modal-footer"
+        >
+          <button
+            className="btn btn-default"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            Отмена
+          </button>
+          <button
+            className="btn btn-primary"
+            disabled={false}
+            onClick={[Function]}
+            type="button"
+          >
+            Да
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

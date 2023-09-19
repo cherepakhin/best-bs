@@ -1,0 +1,85 @@
+/* istanbul ignore next */'use strict';Object.defineProperty(exports, "__esModule", { value: true });exports.
+
+
+
+
+
+
+selectDate = selectDate; /* istanbul ignore next */exports.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+getDoc = getDoc;var /* istanbul ignore next */_isomorphicFetch = require('isomorphic-fetch'); /* istanbul ignore next */var _isomorphicFetch2 = _interopRequireDefault(_isomorphicFetch);var /* istanbul ignore next */_constants = require('../constants');var /* istanbul ignore next */_MessageErrorCtrl = require('../components/dlg/MessageErrorCtrl'); /* istanbul ignore next */var _MessageErrorCtrl2 = _interopRequireDefault(_MessageErrorCtrl);var /* istanbul ignore next */_reactRouter = require('react-router'); /* istanbul ignore next */function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function selectDate(ddate) {return function (dispatch) {dispatch({ type: /* istanbul ignore next */_constants.CONST_ACTION.PROGRESS_SHOW });var body = 'ddate=' + encodeURIComponent( /* istanbul ignore next */_constants.dateFormatter.format(ddate));return (/* istanbul ignore next */(0, _isomorphicFetch2.default)( /* istanbul ignore next */_constants.INITVAR.URL_SERVER + '/doc.ctrl/getByDate', { method: 'POST', headers: { 'Accept': 'application/json, text/plain, */*', 'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8' }, body: body }).then(function (response) {return response.json();}).then(function (items) {if (items.message !== undefined && items.message !== '') {/* istanbul ignore next */_MessageErrorCtrl2.default.openDlg(dispatch, items);}var docs = items.map(function (doc) {doc.ddate = new Date(doc.ddate);return doc; /*                console.log(doc.n);
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       console.log(dateFormatter.format(new Date(doc.ddate)));*/});dispatch({ type: /* istanbul ignore next */_constants.CONST_ACTION.SELECT_DATE_DOC, payload: { docs: docs, ddate: ddate } });dispatch({ type: /* istanbul ignore next */_constants.CONST_ACTION.PROGRESS_HIDE });}).catch(function (ex) {console.log('Failed create doc /doc.ctrl/getByDate', ex);}));};}function getDoc(docN) {return function (dispatch) {
+        dispatch({
+            type: /* istanbul ignore next */_constants.CONST_ACTION.PROGRESS_SHOW });
+
+        var body = 'docN=' + encodeURIComponent(docN);
+        return (/* istanbul ignore next */(0, _isomorphicFetch2.default)( /* istanbul ignore next */_constants.INITVAR.URL_SERVER + '/doc.ctrl/getDoc', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json, text/plain, */*',
+                    'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8' },
+
+                body: body }).
+
+            then(function (response) {
+                return response.json();
+            }).then(function (doc) {
+                if (doc.message !== undefined && doc.message !== '') {
+                    /* istanbul ignore next */_MessageErrorCtrl2.default.openDlg(dispatch, doc);
+                }
+                doc.ddate = new Date(doc.ddate);
+                dispatch({
+                    type: /* istanbul ignore next */_constants.CONST_ACTION.SET_DOC,
+                    payload: doc });
+
+
+                dispatch({
+                    type: /* istanbul ignore next */_constants.CONST_ACTION.PROGRESS_HIDE });
+
+
+                /* istanbul ignore next */_reactRouter.browserHistory['push']('/doc');
+            }).catch(function (ex) {
+                console.log('Failed create doc /doc.ctrl/getDoc', ex);
+            }));
+    };
+}

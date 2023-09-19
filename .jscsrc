@@ -1,0 +1,14 @@
+{
+  "preset": "airbnb",
+  "requireCamelCaseOrUpperCaseIdentifiers": false,
+  "requireTrailingComma": false,
+  "validateIndentation": 2,
+  "maximumLineLength": 120,
+  "disallowTrailingComma": true,
+  "disallowFunctionDeclarations": true,
+  "disallowNewlineBeforeBlockStatements": true,
+  "fileExtensions": [
+    ".js",
+    ".sublime-keymap"
+  ]
+}

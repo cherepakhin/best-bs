@@ -1,0 +1,71 @@
+/* istanbul ignore next */'use strict';var /* istanbul ignore next */_constants = require('../../../constants');
+var /* istanbul ignore next */_DocActions = require('../../DocActions'); /* istanbul ignore next */var actions = _interopRequireWildcard(_DocActions);
+
+var /* istanbul ignore next */_reduxThunk = require('redux-thunk'); /* istanbul ignore next */var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
+var /* istanbul ignore next */_reduxMockStore = require('redux-mock-store'); /* istanbul ignore next */var _reduxMockStore2 = _interopRequireDefault(_reduxMockStore);
+var /* istanbul ignore next */_nock = require('nock'); /* istanbul ignore next */var _nock2 = _interopRequireDefault(_nock);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;} else {var newObj = {};if (obj != null) {for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];}}newObj.default = obj;return newObj;}}
+
+var middlewares = [/* istanbul ignore next */_reduxThunk2.default];
+var mockStore = /* istanbul ignore next */(0, _reduxMockStore2.default)(middlewares);
+
+describe('DocActions actions', function () {
+    afterEach(function () {
+        /* istanbul ignore next */_nock2.default.cleanAll();
+    });
+
+    it('Сохранение док-та (saveDoc)', function () {
+        /* istanbul ignore next */(0, _nock2.default)( /* istanbul ignore next */_constants.INITVAR.URL_SERVER).
+        post('/doc.ctrl/save').
+        reply(200, {
+            doc: {
+                n: 100,
+                ddate: '01.01.17',
+                bonus: 10,
+                summa: 100,
+                docItems: [],
+                payments: [],
+                discounts: [] } });
+
+
+
+        var expectedActions = [
+        {
+            type: /* istanbul ignore next */_constants.CONST_ACTION.PROGRESS_SHOW },
+
+        {
+            type: /* istanbul ignore next */_constants.CONST_ACTION.SET_DOC,
+            payload: {
+                doc: {
+                    n: 100,
+                    ddate: '01.01.17',
+                    bonus: 10,
+                    summa: 100,
+                    docItems: [],
+                    payments: [],
+                    discounts: [] } } },
+
+
+
+        {
+            type: /* istanbul ignore next */_constants.CONST_ACTION.PROGRESS_HIDE }];
+
+
+
+        var store = mockStore({});
+
+        var doc = {
+            n: 100,
+            ddate: '01.01.17',
+            bonus: 10,
+            summa: 100,
+            docItems: [],
+            payments: [],
+            discounts: [] };
+
+
+        return store.dispatch(actions.saveDoc(doc)).
+        then(function () {// return of async actions
+            expect(store.getActions()).toEqual(expectedActions);
+        });
+    });
+});

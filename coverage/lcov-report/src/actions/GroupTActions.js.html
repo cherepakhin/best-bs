@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for src/actions/GroupTActions.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">src/actions</a> GroupTActions.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">87.5% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>14/16</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">66.67% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>4/6</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">80% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>8/10</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">87.5% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>14/16</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { CONST_ACTION, INITVAR } from '../constants';
+import fetch from 'isomorphic-fetch';
+&nbsp;
+/**
+ * Получение хар-к группы и товаров (если нет осн.хар-к)
+ * @param groupT
+ * @param onRest
+ * @returns {function(*)}
+ */
+export function selectGroupT(groupT, onRest = <span class="branch-0 cbranch-no" title="branch not covered" >true)</span> {
+  return (dispatch) =&gt; {
+      return fetch(INITVAR.URL_SERVER + '/groupt.ctrl/features_for_group', {
+          method: 'POST',
+          headers: {
+              Accept: 'application/json, text/plain, */*',
+              'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
+            },
+          body: 'groupt=' + encodeURIComponent(groupT.name)
+&nbsp;
+        }).then(function (response) {
+          return response.json();
+        }).then(function (featuresForGroupT) {
+          groupT = { ...groupT, featuresForGroupT: featuresForGroupT };
+          dispatch({
+              type: CONST_ACTION.SELECT_GROUPT,
+              payload: {
+                  selectedGroupT: groupT,
+                },
+            });
+          dispatch(getAllGoodsByGroupT(groupT, onRest));
+        }).catch(<span class="fstat-no" title="function not covered" >fu</span>nction (ex) {
+<span class="cstat-no" title="statement not covered" >          console.log('Failed get groups /groupt.ctrl/features_for_group', ex);</span>
+        });
+    };
+}
+&nbsp;
+/**
+ * Получение товаров если у группы нет основных хар-к. Вывалить все товары группы
+ * @param groupT
+ * @param onRest
+ * @returns {function(*)}
+ */
+export function getAllGoodsByGroupT(groupT, onRest = <span class="branch-0 cbranch-no" title="branch not covered" >true)</span> {
+  return dispatch =&gt; {
+      if (groupT.featuresForGroupT === undefined || groupT.featuresForGroupT.length == 0) {
+        dispatch({
+            type: CONST_ACTION.PROGRESS_SHOW,
+          });
+        let body = 'groupt=' + encodeURIComponent(groupT.name) +
+            '&amp;filter=' + encodeURIComponent('') +
+            '&amp;onrest=' + encodeURIComponent(onRest);
+        return fetch(INITVAR.URL_SERVER + '/price.ctrl/getByFilter', {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json, text/plain, */*',
+                'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8'
+              },
+            body: body
+&nbsp;
+          }).then(function (response) {
+            return response.json();
+          }).then(function (goods) {
+            dispatch({
+                type: CONST_ACTION.GET_GOODS,
+                payload: {
+                    goods: goods
+                  },
+              });
+            dispatch({
+                type: CONST_ACTION.PROGRESS_HIDE
+              });
+          }).catch(<span class="fstat-no" title="function not covered" >fu</span>nction (ex) {
+<span class="cstat-no" title="statement not covered" >            console.log('Failed get goods /price.ctrl/list', ex);</span>
+          });
+      }
+    };
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Mar 23 2017 22:56:20 GMT+0500 (+05)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

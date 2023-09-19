@@ -1,0 +1,19 @@
+/* istanbul ignore next */'use strict';var /* istanbul ignore next */_ProgressActions = require('../ProgressActions');
+var /* istanbul ignore next */_constants = require('../../constants');
+
+describe('ProgressActions', function () {
+    it('show progress', function () {
+        var expectedAction = {
+            type: /* istanbul ignore next */_constants.CONST_ACTION.PROGRESS_SHOW,
+            payload: '' };
+
+        expect( /* istanbul ignore next */(0, _ProgressActions.progressShow)()).toEqual(expectedAction);
+    });
+    it('hide progress', function () {
+        var expectedAction = {
+            type: /* istanbul ignore next */_constants.CONST_ACTION.PROGRESS_HIDE,
+            payload: '' };
+
+        expect( /* istanbul ignore next */(0, _ProgressActions.progressHide)()).toEqual(expectedAction);
+    });
+});

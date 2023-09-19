@@ -1,0 +1,4 @@
+/* istanbul ignore next */'use strict';test('add 2+2', function () {
+    var sum = require('../sum0');
+    expect(sum(2, 2)).toBe(4);
+});
