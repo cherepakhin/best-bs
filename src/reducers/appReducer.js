@@ -11,10 +11,10 @@ let initialState = {
 
 const appReducer = function (state = initialState, action) {
   switch (action.type) {
-  case CONST_ACTION.PROGRESS_SHOW:
-    return { ...state, progress: true };
-  case CONST_ACTION.PROGRESS_HIDE:
-    return { ...state, progress: false };
+  // case CONST_ACTION.PROGRESS_SHOW:
+  //   return { ...state, progress: true };
+  // case CONST_ACTION.PROGRESS_HIDE:
+  //   return { ...state, progress: false };
   case CONST_ACTION.INIT_VAR:
     return {
       ...state,
